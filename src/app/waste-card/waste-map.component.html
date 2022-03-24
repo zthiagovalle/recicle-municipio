@@ -1,0 +1,9 @@
+<div *ngFor="let waste of wastes">
+  <p>Nome: {{ waste.name }}</p>
+  <div *ngFor="let addres of waste.addres">
+    <p>
+      Endereço: {{ addres.street }}, latitude:{{ addres.lat }} longitude:
+      {{ addres.lng }}
+    </p>
+  </div>
+</div>
