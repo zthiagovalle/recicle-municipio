@@ -16,7 +16,19 @@ export class WasteMapComponent implements OnInit {
   ngOnInit(): void {
     this.WasteService.getWaste().subscribe(data => {
       this.wastes = data;
+      this.orderWastebyName();
+      this.wastes.forEach(waste => {
+        this.orderAddressInWaste(waste);
+      });
     },
       error => console.log(error));
+  }
+
+  orderWastebyName() {
+    this.wastes.sort((a, b) => a.name.localeCompare(b.name));
+  }
+
+  orderAddressInWaste(waste: Waste) {
+    waste.addres.sort((a, b) => a.street.localeCompare(b.street));
   }
 }
