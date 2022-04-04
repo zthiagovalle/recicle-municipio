@@ -1,2 +1,24 @@
-<h2>Menu</h2>
-<hr />
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white" [routerLink]="['/home']"
+      >Recicle Município</a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link text-white" [routerLink]="['/sobre']">Sobre</a>
+        <a class="nav-link text-white" [routerLink]="['/contato']">Contato</a>
+      </div>
+    </div>
+  </div>
+</nav>

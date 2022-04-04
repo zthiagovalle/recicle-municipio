@@ -9,6 +9,9 @@ import { HomeComponent } from './navegation/home/home.component';
 import { WasteMapComponent } from './waste-card/waste-map.component';
 import { WasteService } from './waste-card/service/waste.service';
 import { HttpClientModule } from '@angular/common/http';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -16,12 +19,15 @@ import { HttpClientModule } from '@angular/common/http';
     MenuComponent,
     FooterComponent,
     HomeComponent,
-    WasteMapComponent
+    WasteMapComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    GoogleMapsModule
   ],
   providers: [
     WasteService

@@ -1,9 +1,37 @@
-<div *ngFor="let waste of wastes">
-  <p>Nome: {{ waste.name }}</p>
-  <div *ngFor="let addres of waste.addres">
-    <p>
-      Endereço: {{ addres.street }}, latitude:{{ addres.lat }} longitude:
-      {{ addres.lng }}
-    </p>
+<div class="main-container">
+  <div class="row">
+    <h5>Lixos</h5>
+    <div class="col" *ngFor="let waste of wastes">
+      <div class="card" style="width: 18rem">
+        <div class="card-header">
+          {{ waste.name }}
+        </div>
+        <ul
+          class="list-group list-group-flush"
+          *ngFor="let addres of waste.addres"
+        >
+          <li class="list-group-item" (click)="addressClick(addres)">
+            {{ addres.street }}
+            <button type="button" class="btn btn-success">
+              <i class="bi bi-geo-fill"></i> Ver
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <h5>Mapa</h5>
+    <google-map height="400px" width="100%" [center]="center" [zoom]="zoom">
+      <map-marker
+        #marker="mapMarker"
+        *ngFor="let markerPosition of markerPositions"
+        [position]="markerPosition"
+        [options]="markerOptions"
+        (mapClick)="openInfoWindow(marker)"
+      ></map-marker>
+      <map-info-window>{{ currentAddress }}</map-info-window>
+    </google-map>
   </div>
 </div>
