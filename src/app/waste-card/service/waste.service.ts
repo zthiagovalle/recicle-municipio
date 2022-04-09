@@ -9,9 +9,9 @@ export class WasteService {
 
     protected url = "https://waste-api-fatec.azurewebsites.net/waste";
     protected url2 = "http://localhost:3000/waste";
+    protected url3 = "https://localhost:7065/waste";
 
     getWaste(): Observable<Waste[]> {
-        return this.http.get<Waste[]>(this.url2);
+        return this.http.get<Waste[]>(this.url3);
     }
-
 }

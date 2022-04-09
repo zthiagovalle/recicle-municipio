@@ -37,7 +37,7 @@ export class WasteMapComponent implements OnInit {
   }
 
   orderAddressInWaste(waste: Waste) {
-    waste.addres.sort((a, b) => a.street.localeCompare(b.street));
+    waste.address.sort((a, b) => a.street.localeCompare(b.street));
   }
 
   openInfoWindow(marker: MapMarker) {
