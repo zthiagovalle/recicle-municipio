@@ -69,6 +69,14 @@ export class WasteMapComponent implements OnInit {
     this.center = { lat: Number(addres.lat), lng: Number(addres.lng) };
     this.zoom = 19;
     this.currentAddress = addres.street;
-    console.log(this.zoom);
+  }
+
+  addressClick2(lstAddress: Array<Address>) {
+    this.markerPositions = [];
+    lstAddress.forEach(address => {
+      this.markerPositions.push({ lat: Number(address.lat), lng: Number(address.lng) });
+      this.center = { lat: Number(address.lat), lng: Number(address.lng) };
+    })
+    this.zoom = 14;
   }
 }
