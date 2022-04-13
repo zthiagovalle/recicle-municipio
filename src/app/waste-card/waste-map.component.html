@@ -1,24 +1,42 @@
 <div class="main-container">
   <div class="row">
-    <h5>Lixos</h5>
-    <div class="col" *ngFor="let waste of wastes">
-      <div class="card" style="width: 18rem">
-        <div class="card-header">
-          {{ waste.name }}
+    <p-carousel
+      [value]="wastes"
+      [numVisible]="3"
+      [numScroll]="3"
+      [circular]="false"
+      [responsiveOptions]="responsiveOptions"
+    >
+      <ng-template pTemplate="header">
+        <h5>Lixos</h5>
+      </ng-template>
+      <ng-template let-waste pTemplate="waste">
+        <div class="product-item">
+          <div class="product-item-content">
+            <div class="mb-3">
+              <img
+                src="https://cdn.iset.io/assets/34532/produtos/1037/latinha_prata_para_sublimacao_refrigerante.jpg"
+                class="product-image"
+              />
+            </div>
+            <div>
+              <h4 class="mb-1">{{ waste.name }}</h4>
+              <ul
+                class="list-group list-group-flush"
+                *ngFor="let address of waste.address"
+              >
+                <li class="list-group-item" (click)="addressClick(address)">
+                  {{ address.street }}
+                  <button type="button" class="btn btn-success">
+                    <i class="bi bi-geo-fill"></i> Ver
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <ul
-          class="list-group list-group-flush"
-          *ngFor="let addres of waste.address"
-        >
-          <li class="list-group-item" (click)="addressClick(addres)">
-            {{ addres.street }}
-            <button type="button" class="btn btn-success">
-              <i class="bi bi-geo-fill"></i> Ver
-            </button>
-          </li>
-        </ul>
-      </div>
-    </div>
+      </ng-template>
+    </p-carousel>
   </div>
 
   <div class="row">
