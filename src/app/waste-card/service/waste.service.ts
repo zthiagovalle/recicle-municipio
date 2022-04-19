@@ -12,6 +12,6 @@ export class WasteService {
     protected url3 = "https://localhost:7065/waste";
 
     getWaste(): Observable<Waste[]> {
-        return this.http.get<Waste[]>(this.url3);
+        return this.http.get<Waste[]>(this.url);
     }
 }
