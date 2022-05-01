@@ -6,7 +6,7 @@
     <p class="lead">Envie sujestões de pontos de coleta</p>
   </header>
 
-  <form class="mbr-form">
+  <form class="mbr-form" (submit)="sendEmail($event)">
     <div class="row row-sm-offset">
       <div class="col-md-4 multi-horizontal" data-for="name">
         <div class="form-group">
@@ -55,6 +55,7 @@
             name="phone"
             data-form-field="Phone"
             id="phone-form1-2w"
+            required=""
           />
         </div>
       </div>
@@ -72,6 +73,7 @@
         rows="7"
         data-form-field="Message"
         id="message-form1-2w"
+        required=""
       ></textarea>
     </div>
 
