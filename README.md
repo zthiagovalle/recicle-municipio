@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.3.
 
-Site em desenvolvimento, já disponível no link -> https://recicle-municipio-zthiagovalle.vercel.app/home
+Site em desenvolvimento, já disponível no link -> https://recicle-saosimao.vercel.app/home
 
 ## Development server
 
