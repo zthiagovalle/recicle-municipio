@@ -1,4 +1,14 @@
 <div class="main-container">
+  <div class="d-flex justify-content-center" *ngIf="loading">
+    <div
+      class="spinner-border"
+      role="status"
+      style="width: 5rem; height: 5rem; color: green"
+    >
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
   <div class="row">
     <p-carousel
       [value]="wastes"

@@ -12,6 +12,7 @@ import { WasteService } from './service/waste.service';
 export class WasteMapComponent implements OnInit {
 
   public wastes: Array<Waste>;
+  public loading: boolean = true;
   center: google.maps.LatLngLiteral = { lat: 24, lng: 12 };
   zoom = 4;
   markerOptions: google.maps.MarkerOptions = { draggable: false };
@@ -46,6 +47,7 @@ export class WasteMapComponent implements OnInit {
       this.orderWastebyName();
       this.wastes.forEach(waste => {
         this.orderAddressInWaste(waste);
+        this.loading = false;
       });
     },
       error => console.log(error));
