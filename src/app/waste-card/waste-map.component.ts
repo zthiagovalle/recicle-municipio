@@ -52,7 +52,7 @@ export class WasteMapComponent implements OnInit {
         this.visibleWastes = true;
       });
     },
-      error => console.log(error));
+      error => alert('Falha ao carregar os lixos, recarregue a pagina'));
   }
 
   orderWastebyName() {
