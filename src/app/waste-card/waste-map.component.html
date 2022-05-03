@@ -1,16 +1,17 @@
 <div class="main-container">
-  <div class="d-flex justify-content-center" *ngIf="loading">
-    <div
-      class="spinner-border"
-      role="status"
-      style="width: 5rem; height: 5rem; color: green"
-    >
-      <span class="visually-hidden">Loading...</span>
-    </div>
-  </div>
-
   <div class="row">
+    <div class="d-flex justify-content-center" *ngIf="loadingMap">
+      <div
+        class="spinner-border"
+        role="status"
+        style="width: 5rem; height: 5rem; color: green"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+
     <p-carousel
+      *ngIf="visibleWastes"
       [value]="wastes"
       [numVisible]="3"
       [numScroll]="3"
