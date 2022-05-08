@@ -27,7 +27,7 @@
             <div class="product-item-content">
               <div class="mb-3">
                 <img
-                  (click)="addressClick2(waste.address)"
+                  (click)="addressClick(waste.address, waste.name)"
                   src="{{ waste.imageUrl }}"
                   class="product-image"
                 />
@@ -49,7 +49,7 @@
           *ngFor="let markerPosition of markerPositions"
           [position]="markerPosition"
           [options]="markerOptions"
-          (mapClick)="openInfoWindow(marker)"
+          (mapClick)="openInfoWindow(marker, markerPosition)"
         ></map-marker>
         <map-info-window>{{ currentAddress }}</map-info-window>
       </google-map>

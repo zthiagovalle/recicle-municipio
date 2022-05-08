@@ -14,12 +14,13 @@ export class WasteMapComponent implements OnInit {
   public wastes: Array<Waste>;
   public loadingMap: boolean = true;
   public visibleWastes: boolean = false;
-  center: google.maps.LatLngLiteral = { lat: 24, lng: 12 };
-  zoom = 4;
+  center: google.maps.LatLngLiteral = { lat: -21.47612055363184, lng: -47.557284861719424 };
+  zoom = 14;
   markerOptions: google.maps.MarkerOptions = { draggable: false };
   markerPositions: google.maps.LatLngLiteral[] = [];
   @ViewChild(MapInfoWindow) infoWindow: MapInfoWindow;
   currentAddress: string = "";
+  currentWasteName: string = "";
   responsiveOptions;
 
   constructor(private WasteService: WasteService) {
@@ -63,24 +64,24 @@ export class WasteMapComponent implements OnInit {
     waste.address.sort((a, b) => a.street.localeCompare(b.street));
   }
 
-  openInfoWindow(marker: MapMarker) {
+  openInfoWindow(marker: MapMarker, position: any) {
+    let wasteClicked = this.wastes.find(waste => waste.name === this.currentWasteName);
+    wasteClicked?.address.forEach(address => {
+      if (Number(address.lat) === position.lat && Number(address.lng) === position.lng) {
+        this.currentAddress = address.street;
+      }
+    });
+
     this.infoWindow.open(marker);
   }
 
-  addressClick(addres: Address) {
-    this.markerPositions = [];
-    this.markerPositions.push({ lat: Number(addres.lat), lng: Number(addres.lng) });
-    this.center = { lat: Number(addres.lat), lng: Number(addres.lng) };
-    this.zoom = 19;
-    this.currentAddress = addres.street;
-  }
-
-  addressClick2(lstAddress: Array<Address>) {
+  addressClick(lstAddress: Array<Address>, wasteName: string) {
     this.markerPositions = [];
     lstAddress.forEach(address => {
       this.markerPositions.push({ lat: Number(address.lat), lng: Number(address.lng) });
       this.center = { lat: Number(address.lat), lng: Number(address.lng) };
     })
     this.zoom = 14;
+    this.currentWasteName = wasteName;
   }
 }
