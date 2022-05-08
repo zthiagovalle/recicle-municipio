@@ -1,56 +1,58 @@
 <div class="main-container">
-  <div class="row">
-    <div class="d-flex justify-content-center" *ngIf="loadingMap">
-      <div
-        class="spinner-border"
-        role="status"
-        style="width: 5rem; height: 5rem; color: green"
-      >
-        <span class="visually-hidden">Loading...</span>
+  <div class="waste-page">
+    <div class="row waste-row">
+      <div class="d-flex justify-content-center" *ngIf="loadingMap">
+        <div
+          class="spinner-border"
+          role="status"
+          style="width: 5rem; height: 5rem; color: green"
+        >
+          <span class="visually-hidden">Loading...</span>
+        </div>
       </div>
-    </div>
 
-    <p-carousel
-      *ngIf="visibleWastes"
-      [value]="wastes"
-      [numVisible]="3"
-      [numScroll]="3"
-      [circular]="false"
-      [responsiveOptions]="responsiveOptions"
-    >
-      <ng-template pTemplate="header">
-        <h5>Lixos</h5>
-      </ng-template>
-      <ng-template let-waste pTemplate="waste">
-        <div class="product-item">
-          <div class="product-item-content">
-            <div class="mb-3">
-              <img
-                (click)="addressClick2(waste.address)"
-                src="{{ waste.imageUrl }}"
-                class="product-image"
-              />
-            </div>
-            <div>
-              <h4 class="mb-1">{{ waste.name }}</h4>
+      <p-carousel
+        *ngIf="visibleWastes"
+        [value]="wastes"
+        [numVisible]="3"
+        [numScroll]="3"
+        [circular]="false"
+        [responsiveOptions]="responsiveOptions"
+      >
+        <ng-template pTemplate="header">
+          <h3>Lixos</h3>
+        </ng-template>
+        <ng-template let-waste pTemplate="waste">
+          <div class="product-item">
+            <div class="product-item-content">
+              <div class="mb-3">
+                <img
+                  (click)="addressClick2(waste.address)"
+                  src="{{ waste.imageUrl }}"
+                  class="product-image"
+                />
+              </div>
+              <div>
+                <h4 class="mb-1">{{ waste.name }}</h4>
+              </div>
             </div>
           </div>
-        </div>
-      </ng-template>
-    </p-carousel>
-  </div>
+        </ng-template>
+      </p-carousel>
+    </div>
 
-  <div class="row">
-    <h5>Mapa</h5>
-    <google-map height="400px" width="100%" [center]="center" [zoom]="zoom">
-      <map-marker
-        #marker="mapMarker"
-        *ngFor="let markerPosition of markerPositions"
-        [position]="markerPosition"
-        [options]="markerOptions"
-        (mapClick)="openInfoWindow(marker)"
-      ></map-marker>
-      <map-info-window>{{ currentAddress }}</map-info-window>
-    </google-map>
+    <div class="row">
+      <h3>Mapa</h3>
+      <google-map height="400px" width="100%" [center]="center" [zoom]="zoom">
+        <map-marker
+          #marker="mapMarker"
+          *ngFor="let markerPosition of markerPositions"
+          [position]="markerPosition"
+          [options]="markerOptions"
+          (mapClick)="openInfoWindow(marker)"
+        ></map-marker>
+        <map-info-window>{{ currentAddress }}</map-info-window>
+      </google-map>
+    </div>
   </div>
 </div>
