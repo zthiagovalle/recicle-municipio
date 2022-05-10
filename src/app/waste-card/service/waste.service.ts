@@ -7,9 +7,7 @@ import { Waste } from "../model/waste.model";
 export class WasteService {
     constructor(private http: HttpClient) { }
 
-    protected url = "https://waste-api-fatec.azurewebsites.net/waste";
-    protected url2 = "http://localhost:3000/waste";
-    protected url3 = "https://localhost:7065/waste";
+    protected url = "https://waste-api-prd-2.azurewebsites.net/waste";
 
     getWaste(): Observable<Waste[]> {
         return this.http.get<Waste[]>(this.url);
