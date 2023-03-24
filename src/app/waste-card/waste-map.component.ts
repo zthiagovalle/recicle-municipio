@@ -61,12 +61,12 @@ export class WasteMapComponent implements OnInit {
   }
 
   orderAddressInWaste(waste: Waste) {
-    waste.address.sort((a, b) => a.street.localeCompare(b.street));
+    waste.addresses.sort((a, b) => a.street.localeCompare(b.street));
   }
 
   openInfoWindow(marker: MapMarker, position: any) {
     let wasteClicked = this.wastes.find(waste => waste.name === this.currentWasteName);
-    wasteClicked?.address.forEach(address => {
+    wasteClicked?.addresses.forEach(address => {
       if (Number(address.lat) === position.lat && Number(address.lng) === position.lng) {
         this.currentAddress = address.street;
       }
