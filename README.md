@@ -1,8 +1,8 @@
 # RecicleMunicipio
 
 ## 💻 Project
-Esse projeto foi desenvolvido como TCC na minha graduação.
-Tem como objetivo facilitar o encontro de lugares para descarte de lixos no município de São Simão - SP
+Esse projeto foi desenvolvido como TCC na minha graduação. <br>
+Tem como objetivo facilitar o encontro de lugares para descarte de lixos no município de São Simão - SP <br>
 Site em desenvolvimento, já disponível no link -> https://recicle-saosimao.vercel.app/home
 
 O back-end foi desenvolvido inicialmente em C# no repositório https://github.com/zthiagovalle/waste-api , porém decidi recriar em golang no repositório https://github.com/zthiagovalle/waste-api-go
